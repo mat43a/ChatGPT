@@ -1,0 +1,47 @@
+using System;
+
+public class Game {
+  public static void main(String[] args) {
+    // Деклариране на променливи
+    int playerScore = 0;
+    int computerScore = 0;
+    
+    // Деклариране на променливи за хвърляне на монета
+    int playerCoin;
+    int computerCoin;
+    
+    // Деклариране на променливи за състоянието на играта
+    Boolean gameOver = false;
+    
+    // Докато играта не е приключила
+    while (!gameOver) {
+      // Генериране на случайно число за хвърляне на монета от играча
+      playerCoin = (int)(Math.random () * 2);
+      
+      // Генериране на случайно число за хвърляне на монета от компютъра
+      computerCoin = (int)(Math.random() * 2);
+      
+      // Проверка дали играчът е спечелил
+      if (playerCoin > computerCoin) {
+        playerScore++;
+      }
+      // Проверка дали компютърът е спечелил
+      else if (playerCoin < computerCoin) {
+        computerScore++;
+      }
+      
+      // Проверка дали играта е приключила
+      if (playerScore == 3 || computerScore == 3) {
+        gameOver = true;
+      }
+    }
+    
+    // Извеждане на резултата на играта
+    if (playerScore > computerScore) {
+      System.out.println("Поздравления! Вие спечелихте играта!");
+    }
+    else {
+      System.out.println("За съжаление компютърът спечели играта!");
+    }
+  }
+}
