@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() 
+{
+    srand(time(0)); // инициализиране на генератора на случайни числа
+    int randomNumber = rand() % 101; // генериране на случайно число между 0 и 100
+    int guess;
+    int tries = 0;
+
+    cout << "Отгатни числото между 0 и 100: ";
+
+    while (tries < 3) 
+    {
+        cin >> guess;
+        tries++;
+
+        if (guess == randomNumber) 
+        {
+            cout << "Познахте го случайното число! Браво!" << endl;
+            break;
+        } 
+        else if (guess > randomNumber) 
+        {
+            cout << "Вашето число е по-голямо от случайното. Опитайте пак." << endl;
+        } 
+        else 
+        {
+            cout << "Вашето число е по-малко от случайното. Опитайте пак." << endl;
+        }
+    }
+
+    if (tries == 3) 
+    {
+        cout << "Неуспех! Случайното число беше " << randomNumber << endl;
+    }
+
+    return 0;
+}
